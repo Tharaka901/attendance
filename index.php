@@ -4,6 +4,8 @@
     require_once "db/conn.php"; 
 
     $results = $crud->getspecialties();
+    
+    
 ?>
 
     <h1 class="text-center">Registration for IT Conferance </h1>
