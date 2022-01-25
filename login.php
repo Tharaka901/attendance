@@ -8,6 +8,15 @@
         $username = strtolower(trim($_POST["username"]));
         $password = $_POST["password"];
         $new_password = md5($password.$username);
+
+        $result = $user->getUser($username,$new_password);
+        if(!$result){
+            echo '<div class="alert alert-danger">Username or Password is incorrect! Please try again. </div>';
+        }else{
+            $_SESSION["username"] = $username;
+            $_SESSION["userid"] = $result["userid"];
+            header("Location: viewrecords.php");
+        }
     }
 ?>
 
