@@ -14,7 +14,7 @@
             echo '<div class="alert alert-danger">Username or Password is incorrect! Please try again. </div>';
         }else{
             $_SESSION["username"] = $username;
-            $_SESSION["userid"] = $result["userid"];
+            $_SESSION["userid"] = $result["id"];
             header("Location: viewrecords.php");
         }
     }

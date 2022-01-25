@@ -4,7 +4,7 @@
     require_once "db/conn.php";
 
     if(isset($_POST["submit"])){
-       $fname = $_POST["fristname"];
+       $fname = $_POST["firstname"];
        $lname = $_POST["lastname"];
        $dob = $_POST["dob"];
        $email = $_POST["email"];
@@ -51,7 +51,7 @@
     <div class="card" style="width: 20rem;">
         <div class="card-body">
             <h5 class="card-title">
-            <?php echo $_POST ["fristname"] ." ". $_POST["lastname"];?>
+            <?php echo $_POST ["firstname"] ." ". $_POST["lastname"];?>
             </h5>
             <h6 class="card-subtitle mb-2 text-muted"> 
                 <?php echo $_POST["specialty"];?>
