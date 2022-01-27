@@ -6,13 +6,12 @@
 
     if(isset($_POST['submit'])){
         //extract values from the $_POST array
-        $fname = $_POST['fristname'];
+        $fname = $_POST['firstname'];
         $lname = $_POST['lastname'];
         $dob = $_POST['dob'];
         $email = $_POST['email'];
         $contact = $_POST['phone'];
         $specialty = $_POST['specialty'];
-        $destination = $_POST['avatar'];
 
         $orig_file = $_FILES["avatar"]["tmp_name"];
         $ext = pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);

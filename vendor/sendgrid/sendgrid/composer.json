@@ -1,6 +1,7 @@
 {
   "name": "sendgrid/sendgrid",
   "description": "This library allows you to quickly and easily send emails through Twilio SendGrid using PHP.",
+  "version": "7.3.0",
   "homepage": "http://github.com/sendgrid/sendgrid-php",
   "license": "MIT",
   "keywords": [
@@ -14,8 +15,7 @@
   ],
   "require": {
     "php": ">=5.6",
-    "sendgrid/php-http-client": "~3.10",
-    "starkbank/ecdsa": "0.*",
+    "sendgrid/php-http-client": "~3.9",
     "ext-curl": "*",
     "ext-json": "*",
     "ext-mbstring": "*",
@@ -32,25 +32,16 @@
   "type": "library",
   "autoload": {
     "psr-4": {
-      "SendGrid\\Contacts\\": "lib/contacts/",
-      "SendGrid\\EventWebhook\\": "lib/eventwebhook/",
-      "SendGrid\\Helper\\": "lib/helper/",
+      "SendGrid\\": "lib/",
       "SendGrid\\Mail\\": "lib/mail/",
+      "SendGrid\\Contacts\\": "lib/contacts/",
       "SendGrid\\Stats\\": "lib/stats/"
     },
-    "classmap": [
-      "lib/BaseSendGridClientInterface.php",
-      "lib/SendGrid.php",
-      "lib/TwilioEmail.php"
-    ]
+    "files": ["lib/SendGrid.php"]
   },
   "autoload-dev": {
     "psr-4": {
-      "SendGrid\\Tests\\Integration\\": "test/integration",
-      "SendGrid\\Tests\\Unit\\": "test/unit"
-    },
-    "classmap": [
-      "test/BaseTestClass.php"
-    ]
+      "SendGrid\\Tests\\": "test/"
+    }
   }
 }

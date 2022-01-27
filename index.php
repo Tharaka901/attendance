@@ -1,61 +1,68 @@
-<?php 
-    $title = "Index";  
-    require_once "includes/header.php";
-    require_once "includes/auth_check.php";
-    require_once "db/conn.php"; 
+    
+<?php
+    $title = 'Index'; 
 
-    $results = $crud->getspecialties();
-    
-    
+    require_once 'includes/header.php'; 
+    require_once 'db/conn.php'; 
+
+    $results = $crud->getSpecialties();
+
 ?>
+    <!-- 
+        - First name
+        - Last Name
+        - Date of Birth (Use DatePicker)
+        - Specialty (Database Admin, SOftware Developer, Web Administrator, Other)
+        - Email Address
+        - Contact Number
+     -->
+    <h1 class="text-center">Registration for IT Conference </h1>
 
-    <h1 class="text-center">Registration for IT Conferance </h1>
- 
-    
-    <form method="post" action="success.php">
-        <div class="mb-3">
-            <label for="fristname">Frist Name</label>
-            <input required type="text" class="form-control" id="fristname" name="fristname" placeholder="Enter Frist Name">
+    <form method="post" action="success.php" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="firstname">First Name</label>
+            <input required type="text" class="form-control" id="firstname" name="firstname">
         </div>
-        <div class="mb-3">
+        <div class="form-group">
             <label for="lastname">Last Name</label>
-            <input required type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter Last Name">
-        </div> 
-        <div class="mb-3">
-            <label for="dob">Date of Birth</label>
-            <input required type="text" class="form-control" id="dob" name="dob">
-        </div>  
-        <div class="mb-3">
-            <label for="specialty">Area of Experties</label>
-            <select class="form-select form-select-sm" id="specialty" name="specialty" >
-                <?php while($r= $results->fetch(PDO::FETCH_ASSOC)) {?>
-                    <option value="<?php echo $r["specialty_id"]?>"><?php echo $r["name"];?></option>     
-                <?php }?>    
+            <input required type="text" class="form-control" id="lastname" name="lastname">
+        </div>
+        <div class="form-group">
+            <label for="dob">Date Of Birth</label>
+            <input type="text" class="form-control" id="dob" name="dob">
+        </div>
+        <div class="form-group">
+            <label for="specialty">Area of Expertise</label>
+            <select class="form-control" id="specialty" name="specialty">
+                <?php while($r = $results->fetch(PDO::FETCH_ASSOC)) {?>
+                   <option value="<?php echo $r['specialty_id'] ?>"><?php echo $r['name']; ?></option>
+                <?php }?>
             </select>
         </div>
-        <div class="mb-3">
-            <label for="email1">Email address</label>
-            <input required type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter Email">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input required type="email" class="form-control" id="email"  name="email" aria-describedby="emailHelp" >
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
-        <div class="mb-3">
+        <div class="form-groupform-group">
             <label for="phone">Contact Number</label>
-            <input required type="text" class="form-control" id="phone" name="phone" aria-describedby="phoneHelp" placeholder="Enter Phone Number">
-            <div id="phoneHelp" class="form-text">We'll never share your Phone Number with anyone 
-                else.</div>
+            <input type="text" class="form-control" id="phone" name="phone" aria-describedby="phoneHelp" >
+            <small id="phoneHelp" class="form-text text-muted">We'll never share your number with anyone else.</small>
         </div>
         <br/>
         <div class="custom-file">
-            <input type="file" accept="image/*" class="custom-file-input" id="avatar" name="avatar" >        
-            <label class="custom-file-label" for="avatar">Choice File</label>
+            <input type="file" accept="image/*" class="custom-file-input" id="avatar" name="avatar" >
+            <label class="custom-file-label" for="avatar">Choose File</label>
             <small id="avatar" class="form-text text-danger">File Upload is Optional</small>
+
         </div>
-              
-        <div class="d-grid gap-2">
-            <button class="btn btn-primary" type="submit" name="submit">Submit</button>
-        </div>
+        
+        
+        <button type="submit" name="submit" class="btn btn-primary btn-block">Submit</button>
     </form>
 <br>
-<?php require_once "includes/footer.php"; ?>
-
- 
+<br>
+<br>
+<br>
+<br>
+<?php require_once 'includes/footer.php'; ?>

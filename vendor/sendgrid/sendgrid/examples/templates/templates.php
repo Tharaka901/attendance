@@ -1,8 +1,9 @@
 <?php
+require 'vendor/autoload.php'; // If you're using Composer (recommended)
+// comment out the above line if not using Composer
+// require("./sendgrid-php.php"); 
+// If not using Composer, uncomment the above line
 
-// Next line will load dependencies to run this example
-// Please refer to the README how to use in your project
-require_once __DIR__ . '/../../sendgrid-php.php';
 
 $apiKey = getenv('SENDGRID_API_KEY');
 $sg = new \SendGrid($apiKey);
@@ -25,13 +26,12 @@ try {
 }
 
 ////////////////////////////////////////////////////
-// Retrieve all transactional templates (legacy & dynamic). #
+// Retrieve all transactional templates. #
 // GET /templates #
 
-$query_params = ['generations' => 'legacy,dynamic'];
 
 try {
-    $response = $sg->client->templates()->get(null, $query_params);
+    $response = $sg->client->templates()->get();
     print $response->statusCode() . "\n";
     print_r($response->headers());
     print $response->body() . "\n";
@@ -87,16 +87,17 @@ try {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
 
+
 ////////////////////////////////////////////////////
 // Create a new transactional template version. #
 // POST /templates/{template_id}/versions #
 
 $request_body = json_decode('{
-  "active": 1,
-  "html_content": "<%body%>",
-  "name": "example_version_name",
-  "plain_content": "<%body%>",
-  "subject": "<%subject%>",
+  "active": 1, 
+  "html_content": "<%body%>", 
+  "name": "example_version_name", 
+  "plain_content": "<%body%>", 
+  "subject": "<%subject%>", 
   "template_id": "ddb96bbc-9b92-425e-8979-99464621b543"
 }');
 $template_id = "test_url_param";
@@ -115,10 +116,10 @@ try {
 // PATCH /templates/{template_id}/versions/{version_id} #
 
 $request_body = json_decode('{
-  "active": 1,
-  "html_content": "<%body%>",
-  "name": "updated_example_name",
-  "plain_content": "<%body%>",
+  "active": 1, 
+  "html_content": "<%body%>", 
+  "name": "updated_example_name", 
+  "plain_content": "<%body%>", 
   "subject": "<%subject%>"
 }');
 $template_id = "test_url_param";

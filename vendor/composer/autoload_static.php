@@ -4,10 +4,10 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit3186e6b4898ffa7d5d40f1c82bb453a6
+class ComposerStaticInit68953edd920a38314407effd043562e9
 {
     public static $files = array (
-        '79f66bc0a1900f77abe4a9a299057a0a' => __DIR__ . '/..' . '/starkbank/ecdsa/src/ellipticcurve.php',
+        '3f8bdd3b35094c73a26f0106e3c0f8b2' => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/SendGrid.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -15,8 +15,6 @@ class ComposerStaticInit3186e6b4898ffa7d5d40f1c82bb453a6
         array (
             'SendGrid\\Stats\\' => 15,
             'SendGrid\\Mail\\' => 14,
-            'SendGrid\\Helper\\' => 16,
-            'SendGrid\\EventWebhook\\' => 22,
             'SendGrid\\Contacts\\' => 18,
             'SendGrid\\' => 9,
         ),
@@ -31,14 +29,6 @@ class ComposerStaticInit3186e6b4898ffa7d5d40f1c82bb453a6
         array (
             0 => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/mail',
         ),
-        'SendGrid\\Helper\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/helper',
-        ),
-        'SendGrid\\EventWebhook\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/eventwebhook',
-        ),
         'SendGrid\\Contacts\\' => 
         array (
             0 => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/contacts',
@@ -46,22 +36,15 @@ class ComposerStaticInit3186e6b4898ffa7d5d40f1c82bb453a6
         'SendGrid\\' => 
         array (
             0 => __DIR__ . '/..' . '/sendgrid/php-http-client/lib',
+            1 => __DIR__ . '/..' . '/sendgrid/sendgrid/lib',
         ),
-    );
-
-    public static $classMap = array (
-        'BaseSendGridClientInterface' => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/BaseSendGridClientInterface.php',
-        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'SendGrid' => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/SendGrid.php',
-        'TwilioEmail' => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/TwilioEmail.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit3186e6b4898ffa7d5d40f1c82bb453a6::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit3186e6b4898ffa7d5d40f1c82bb453a6::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit3186e6b4898ffa7d5d40f1c82bb453a6::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit68953edd920a38314407effd043562e9::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit68953edd920a38314407effd043562e9::$prefixDirsPsr4;
 
         }, null, ClassLoader::class);
     }

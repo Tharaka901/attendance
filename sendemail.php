@@ -1,27 +1,27 @@
-<?php
-    require "vendor/autoload.php";
+<?php 
+    require 'vendor/autoload.php';
 
     class SendEmail{
 
         public static function SendMail($to,$subject,$content){
-            $key="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";
+            $key = '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';
 
             $email = new \SendGrid\Mail\Mail();
-            $email->setFrom("tharakamihiri@gmail.com", "Tharaka Mihiri");
+            $email->setFrom("trevoir.williams@gmail.com", "Trevoir Williams");
             $email->setSubject($subject);
             $email->addTo($to);
             $email->addContent("text/plain", $content);
+            //$email->addContent("text/html", $content);
 
-            $sendgrid = new \SendGrid($key);  
+            $sendgrid = new \SendGrid($key);
 
             try{
                 $response = $sendgrid->send($email);
                 return $response;
             }catch(Exception $e){
-                echo "Email exeption Caught : ".$e->getMessage() . "\n";
+                echo 'Email exception Caught : '. $e->getMessage() ."\n";
                 return false;
             }
-
         }
     }
-?> 
+?>
