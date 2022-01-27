@@ -41,9 +41,16 @@
         <div class="mb-3">
             <label for="phone">Contact Number</label>
             <input required type="text" class="form-control" id="phone" name="phone" aria-describedby="phoneHelp" placeholder="Enter Phone Number">
-            <div id="phoneHelp" class="form-text">We'll never share your Phone Number with anyone else.</div>
+            <div id="phoneHelp" class="form-text">We'll never share your Phone Number with anyone 
+                else.</div>
         </div>
-        
+        <br/>
+        <div class="custom-file">
+            <input type="file" accept="image/*" class="custom-file-input" id="avatar" name="avatar" >        
+            <label class="custom-file-label" for="avatar">Choice File</label>
+            <small id="avatar" class="form-text text-danger">File Upload is Optional</small>
+        </div>
+              
         <div class="d-grid gap-2">
             <button class="btn btn-primary" type="submit" name="submit">Submit</button>
         </div>
